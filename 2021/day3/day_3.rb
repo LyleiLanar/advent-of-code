@@ -1,5 +1,5 @@
 def read_input
-  file = File.open('inputs/day3.txt')
+  file = File.open('input.txt')
   input = file.readlines.map(&:chomp)
   file.close
   input
@@ -71,5 +71,6 @@ end
 
 puts "Task2: #{task2}"
 puts "Task1: #{task1(read_input)}"
+
 
 

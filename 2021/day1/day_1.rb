@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 def read_input
-  file = File.open('inputs/day1.txt')
+  file = File.open('input.txt')
   input = file.readlines.map(&:chomp).map(&:to_i)
   file.close
   input

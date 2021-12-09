@@ -30,6 +30,19 @@ class Board
     @numbers.flatten.compact.reduce(0) { |pre, cur| pre + cur }
   end
 
+  def prints
+    numbers.each do |values|
+      values.each do |value|
+        if value.nil?
+          print 'X'.ljust(4)
+        else
+          print value.to_s.ljust(4)
+        end
+      end
+      puts
+    end
+  end
+
   private
 
   # If a row is marked return true.

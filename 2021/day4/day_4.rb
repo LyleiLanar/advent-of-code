@@ -21,6 +21,18 @@ class Game
     nil
   end
 
+  def lets_make_win_the_squid
+    last_score = 0
+    @drawn_numbers.each do |number|
+      @boards.each do |board|
+        board.mark_number(number)
+        last_score = number * board.sum if board.fulfilled?
+      end
+      @boards.each_with_index { |board, index| @boards.delete_at(index) if board.fulfilled? }
+    end
+    last_score
+  end
+
   private
 
   def read_input(path)
@@ -47,9 +59,11 @@ class Game
       next_board << row.split(' ').map(&:to_i)
     end
   end
-
 end
 
 game = Game.new('input.txt')
 puts "Task1: #{game.run_game}"
+
+game = Game.new('input.txt')
+puts "Task2: #{game.lets_make_win_the_squid}"
 
